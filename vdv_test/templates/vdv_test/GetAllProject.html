@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Проекты</title>
+</head>
+<body>
+    <h1>Список проектов</h1>
+    <p></p>
+    <a href="create/">Создание проекта</a>
+    <p></p>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Название проекта</th>
+            <th>Email</th>
+            <th>Количество человек</th>
+            <th>Подробнее</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.title }}</td>
+                <td>{{ project.email }}</td>
+                <td>{{ project.countUsers }}</td>
+                <td><a href="">Подробнее</a> </td>
+                <td><a href="delete/{{ project.id }}">Удалить</a> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
