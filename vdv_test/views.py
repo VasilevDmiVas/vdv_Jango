@@ -56,3 +56,4 @@ def about_project(request: HttpRequest, project_id: int) -> HttpResponse:
     form = ProjectAboutForm()
     form.fields['description'].initial = project.description
     return render(request, 'vdv_test/AboutProject.html', {'form': form})
+
