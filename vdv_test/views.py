@@ -50,3 +50,9 @@ def update_project(request: HttpRequest, project_id: int) -> HttpResponse:
         form.fields['title'].initial = project.title
         form.fields['email'].initial = project.email
     return render(request, 'vdv_test/UpdateProject.html', {'form': form})
+
+def about_project(request: HttpRequest, project_id: int) -> HttpResponse:
+    project = Project.objects.get(id=project_id)
+    form = ProjectAboutForm()
+    form.fields['description'].initial = project.description
+    return render(request, 'vdv_test/AboutProject.html', {'form': form})

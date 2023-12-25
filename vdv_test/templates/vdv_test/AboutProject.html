@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Описание проекта</title>
+</head>
+<body>
+    <H1>Описание проекта</H1>
+    <form action="/vdv_test/about/" method="get">
+        {% csrf_token %}
+        {{ form }}
+        <p></p>
+    </form>
+    <p></p>
+
+    <a href="/vdv_test/">Список</a>
+</body>
+</html>

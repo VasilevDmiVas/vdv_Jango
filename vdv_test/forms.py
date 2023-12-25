@@ -17,3 +17,6 @@ class ProjectFilterForm(forms.Form):
 class ProjectUpdateForm(forms.Form):
     title = forms.CharField(max_length=100)
     email = forms.EmailField(max_length=254)
+
+class ProjectAboutForm(forms.Form):
+    description = forms.CharField(widget=forms.Textarea)
