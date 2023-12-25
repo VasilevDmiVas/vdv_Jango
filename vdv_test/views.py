@@ -1,6 +1,6 @@
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from .forms import ProjectForm
+from .forms import *
 
 from vdv_test.models import Project
 
@@ -22,8 +22,6 @@ def crate_project(request: HttpRequest) -> HttpResponse:
             project.email = form.cleaned_data['email']
             project.countUsers = form.cleaned_data['countUsers']
             project.save()
-
-            projects = Project.objects.all()
             return HttpResponseRedirect('/vdv_test/')
     else:
         form = ProjectForm()
@@ -34,3 +32,21 @@ def delete_project(request: HttpRequest, project_id: int) -> HttpResponse:
     project = Project.objects.get(id=project_id)
     project.delete()
     return HttpResponseRedirect('/vdv_test/')
+
+
+
+
+def update_project(request: HttpRequest, project_id: int) -> HttpResponse:
+    project = Project.objects.get(id=project_id)
+    if request.method == 'POST':
+        form = ProjectUpdateForm(request.POST)
+        if form.is_valid():
+            project.title = form.cleaned_data['title']
+            project.email = form.cleaned_data['email']
+            project.save()
+            return HttpResponseRedirect('/vdv_test/')
+    else:
+        form = ProjectUpdateForm()
+        form.fields['title'].initial = project.title
+        form.fields['email'].initial = project.email
+    return render(request, 'vdv_test/UpdateProject.html', {'form': form})

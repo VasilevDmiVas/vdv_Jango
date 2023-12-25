@@ -7,3 +7,9 @@ class Project(models.Model):
     description = models.TextField()
     email = models.EmailField()
     countUsers = models.IntegerField()
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    password = models.CharField(max_length=150)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)

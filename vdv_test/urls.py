@@ -7,4 +7,6 @@ urlpatterns = {
     path('', get_projects),
     path('create/', crate_project),
     path('delete/<int:project_id>/', delete_project),
+    path('update/<int:project_id>/', update_project),
+
 }
