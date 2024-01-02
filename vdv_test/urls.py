@@ -10,4 +10,3 @@ urlpatterns = {
     path('update/<int:project_id>/', update_project),
     path('about/<int:project_id>', about_project),
 }
-
