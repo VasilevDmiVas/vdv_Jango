@@ -35,7 +35,6 @@ def delete_project(request: HttpRequest, project_id: int) -> HttpResponse:
 
 
 
-
 def update_project(request: HttpRequest, project_id: int) -> HttpResponse:
     project = Project.objects.get(id=project_id)
     if request.method == 'POST':
